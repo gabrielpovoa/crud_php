@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800;6..12,1000&display=swap');
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.update {
+    font-size: 1.2rem;
+    color: #38A700;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .3s linear;
+    outline: none;
+    border: none;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+header {
+    padding: 4rem 5%;
+    box-shadow: var(--box-shadow);    
+    background-color: #F5F3F5;
+
+}
+
+nav {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+nav p {
+    font-size: 2rem;
+    color: #274690;
+    font-weight: bold;
+    padding: .4rem;
+}
+
+nav span {
+    background-color: #274690;
+    color: #FFF;
+    padding: .4rem;
+    border-radius: .4rem;
+}
+
+/* index page */
+main {
+    padding: 5rem 5%;
+}
+
+main section {
+    margin-top: 2rem;
+}
+
+main section a {
+    font-size: 2rem;
+    color: #454545;
+    font-weight: bolder;
+    text-transform: uppercase;
+    
+}
+
+main section a:hover {
+    color: #576CA8;
+}
+
+/* Table styles */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+thead {
+    background-color: #333;
+    color: white;
+}
+
+th{
+    border: .1rem solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+td {
+    border: .1rem solid #ddd;
+    padding: .2rem .4rem;
+    text-align: left;
+    color: #274690;
+    font-size: 1.4rem;
+}
+
+/* Status styles */
+.status-active {
+    background-color: #38A700;
+    border-radius: .5rem;
+    padding: .9rem 1.9rem;
+    font-size: 1.2rem;
+    color: #FFF;
+
+}
+
+.status-inactive {
+    background-color: #F52F57;
+    border-radius: .5rem;
+    padding: .9rem 1.9rem;
+    font-size: 1.2rem;
+    color: #FFF;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 4rem;
+    padding: 2rem 5%;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+    gap:.4rem;
+    font-size: 1.4rem;
+    font-weight: lighter;
+}
+
+form label input,select{
+    padding: 1rem;
+    text-transform: none;
+    border-radius: .4rem;
+    box-shadow: var(--box-shadow);
+}
+
+input[type="submit"] {
+    background-color: #454545;
+    color: #ddd;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    border-radius: .4rem;
+    margin-top: 3rem;
+}
+
+input[type="submit"]:hover {
+    background-color: #274690;
+}
+
+option{
+    background-color: #274690;
+    color: #FFF;
+    font-size: 1.3rem;
+    font-family: 'Icons', 'Roboto', sans-serif;
+}
