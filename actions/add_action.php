@@ -1,7 +1,6 @@
 <?php
-
-require('config.php');
-require('dao/UserDAOMySQL.php');
+require('../config.php');
+require('../dao/UserDAOMySQL.php');
 
 
 $userDao = new UserDAOMySQL($pdo);
@@ -20,6 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $newUser->setStatus($status);
 
             $userDao->Add($newUser);
+
+            var_dump($userDao);
 
             header('Location: ../index.php');
             exit;

@@ -1,5 +1,5 @@
 <?php
-include_once './Models/User.php';
+require ('./Models/User.php');
 
 class UserDAOMySQL implements UserDAO
 {
