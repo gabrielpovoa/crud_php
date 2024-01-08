@@ -1,5 +1,10 @@
 <?php
-require('../config.php');
+require('config.php');
+require 'dao/UserDAOMySQL.php';
+
+
+$userDao = new UserDAOMySQL($pdo);
+
 
 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -7,17 +12,14 @@ $status = $_POST['status'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($name && $email && $status) {
+        if ($userDao->findByEmail($email) === false) {
+            $newUser = new User;
+            $newUser->setUsername($name);
+            $newUser->setUserEmail($email);
+            $newUser->setStatus($status);
 
-        $sql = $pdo->prepare("SELECT * from users where UserEmail = :email");
-        $sql->bindValue(':email', $email,);
-        $sql->execute();
+            $userDao->Add($newUser);
 
-        if ($sql->rowCount() == 0) {
-            $sql = $pdo->prepare("INSERT INTO users (Username,UserEmail,Status) VALUES (:name, :email, :status) ");
-            $sql->bindValue(':name', $name);
-            $sql->bindValue(':email', $email,);
-            $sql->bindValue(':status', $status);
-            $sql->execute();
             header('Location: ../index.php');
             exit;
         } else {
