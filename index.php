@@ -1,6 +1,7 @@
 <?php
 require('./components/header.php');
-require('getRoute.php');
+require('config.php');
+require('dao/UserDAOMySQL.php');
 
 $userDao = new UserDAOMySQL($pdo);
 $result = $userDao->findAll();

@@ -1,6 +1,7 @@
 <?php
+
 require('config.php');
-require 'dao/UserDAOMySQL.php';
+require('dao/UserDAOMySQL.php');
 
 
 $userDao = new UserDAOMySQL($pdo);
