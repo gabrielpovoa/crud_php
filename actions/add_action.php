@@ -10,26 +10,21 @@ $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $status = $_POST['status'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($name && $email && $status) {
         if ($userDao->findByEmail($email) === false) {
             $newUser = new User;
             $newUser->setUsername($name);
             $newUser->setUserEmail($email);
             $newUser->setStatus($status);
-
             $userDao->Add($newUser);
 
-            var_dump($userDao);
-
+            echo "added";
             header('Location: ../index.php');
             exit;
-        } else {
-            header('Location: ../add_new_user.php');
-            exit;
         }
-    } else {
-        header('Location: ../add_new_user.php');
-        exit;
     }
 }
+header('Location: ../add_new_user.php');
+exit;
