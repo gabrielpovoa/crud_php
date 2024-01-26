@@ -54,6 +54,18 @@ class UserDAOMySQL implements UserDAO
     }
     public function findByEmail($email)
     {
+        $sql = $this->pdo->prepare("SELECT * FROM users WHERE UserEmail = :email");
+        $sql->bindValue(':email', $email);
+        $sql->execute();
+        if ($sql->rowCount() > 0) {
+            $row = $sql->fetch();
+            $u = new User();
+            $u->setUsername($row['']);
+            $u->setUserEmail($row['']);
+            $u->setStatus($row['']);
+            return $u;
+        } else {
+        }
     }
     public function update(User $u)
     {
